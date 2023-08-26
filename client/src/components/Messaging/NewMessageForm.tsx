@@ -39,6 +39,13 @@ export const NewMessageForm = ({
     // handleSubmit;
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit(event);
+    }
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -62,6 +69,7 @@ export const NewMessageForm = ({
             onChange={(e) => setText(e.target.value)}
             value={text}
             autoComplete="off"
+            onKeyPress={handleKeyPress}
           />
           {selectedImg === "" ? null : <RemoveButton onClick={resetImage} />}
           <div className={styles.buttonImageContainer}>
