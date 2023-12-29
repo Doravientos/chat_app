@@ -8,7 +8,7 @@ const app = express();
 app.disable("x-powered-by");
 import apiController from "./backend/api";
 const corsOptions = {
-  origin: process.env.CHAT_LINK_DOMAIN || "localhost:3001"
+  origin: "*"
 };
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: "10mb" }));
