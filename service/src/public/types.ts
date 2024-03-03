@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+export type SocketListenerType = "limit-reached" | "delivered" | "on-alice-join" | "on-alice-disconnect" | "chat-message";
+>>>>>>> 7330d72 (fix: type/service (#308))
 export type LinkObjType = {
     hash: string,
     link: string,
@@ -20,6 +24,11 @@ export interface IChatE2EE {
     sendMessage(args: { image: string, text: string }): Promise<ISendMessageReturn>;
     getPublicKey(): Promise<any>; //fix: return type
     dispose(): void;
+<<<<<<< HEAD
+=======
+    encrypt({ image, text }): { send: () => Promise<ISendMessageReturn> };
+    on(listener: SocketListenerType, callback): void;
+>>>>>>> 7330d72 (fix: type/service (#308))
 }
 
 export interface ICryptoUtils {

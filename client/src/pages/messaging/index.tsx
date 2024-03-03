@@ -11,13 +11,13 @@ import {
   isEmptyMessage
 } from "./helpers";
 
-import { ThemeContext } from '../../ThemeContext.js';
-import styles from './Style.module.css';
-import { Message, UserStatusInfo, NewMessageForm, ScrollWrapper } from '../../components/Messaging';
-import Notification from '../../components/Notification';
-import LinkSharingInstruction from '../../components/Messaging/LinkSharingInstruction';
-import notificationAudio from '../../components/Notification/audio.mp3';
-import { LS, SS } from '../../utils/storage';
+import { ThemeContext } from "../../ThemeContext";
+import styles from "./Style.module.css";
+import { Message, UserStatusInfo, NewMessageForm, ScrollWrapper } from "../../components/Messaging";
+import Notification from "../../components/Notification";
+import LinkSharingInstruction from "../../components/Messaging/LinkSharingInstruction";
+import notificationAudio from "../../components/Notification/audio.mp3";
+import { LS, SS } from "../../utils/storage";
 
 const chate2ee = createChatInstance();
 type messageObj = {
@@ -208,7 +208,7 @@ const Chat = () => {
           image: string;
           sender: string;
           id: string;
-          timestamp: Timestamp;
+          timestamp: number;
         }) => {
           try {
             const message = await cryptoUtils.decryptMessage(

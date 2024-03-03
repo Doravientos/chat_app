@@ -7,6 +7,7 @@ import { IChatE2EE, IGetPublicKeyReturn, ISendMessageReturn, LinkObjType } from 
 import { cryptoUtils } from './crypto';
 import { SocketInstance, SOCKET_LISTENERS, SubscriptionContextType } from './socket/socket';
 import { Logger } from './utils/logger';
+import { SocketListenerType } from './public/types';
 
 export { cryptoUtils } from './crypto';
 export { setConfig } from './configContext';
@@ -102,7 +103,11 @@ class ChatE2EE implements IChatE2EE {
         })
     }
 
+<<<<<<< HEAD
     public on(listener: SOCKET_LISTENERS, callback) {
+=======
+    public on(listener: SocketListenerType, callback): void {
+>>>>>>> 7330d72 (fix: type/service (#308))
         const loggerWithCount = this.subscriptionLogger.count();
         const sub = this.subscriptions.get(listener);
         if (sub) {

@@ -3,17 +3,8 @@ import { FiLink, FiCopy, FiExternalLink } from 'react-icons/fi';
 import styles from './Style.module.css';
 import { ThemeContext } from '../../ThemeContext.js';
 
-type LinkDisplayProps = {
-  content: { absoluteLink: string; pin: string } | string;
-};
-
-const LinkDisplay = ({ content }: LinkDisplayProps) => {
-  let chatLink = "";
-  if (typeof content === "object" && content !== null) {
-    chatLink = content.absoluteLink;
-  } else {
-    chatLink = `${window.location.protocol}//${window.location.host}${content}`;
-  }
+const LinkDisplay: React.FC<{ content: LinkObjType}> = ( { content } ) => {
+  const chatLink = content.absoluteLink || `${window.location.protocol}//${window.location.host}/chat/${content.hash}`;
   const textAreaRef = useRef<HTMLInputElement | null>(null);
   const [buttonText, setButtonText] = useState("Copy");
   const [darkMode] = useContext(ThemeContext);
