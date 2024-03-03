@@ -54,7 +54,7 @@ const Chat = () => {
 
   useEffect(() => {
     storeUserSessionID(channelID, userId);
-  }, [ channelID ]);
+  }, [channelID, userId]);
 
   useEffect(() => {
     if (LS.get('store-chat-messages')) {
