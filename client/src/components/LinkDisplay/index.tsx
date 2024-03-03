@@ -60,11 +60,7 @@ const LinkDisplay = ({ content }: LinkDisplayProps) => {
           </button>
         </div>
       </div>
-<<<<<<< HEAD:client/src/components/LinkDisplay/index.tsx
-
-=======
      
->>>>>>> refs/rewritten/fix-package-update-type-declaration-fixed:client/src/components/LinkDisplay/index.js
       <div className={styles.divider} />
       <div
         className={`${styles.openLink}
