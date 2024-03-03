@@ -1,13 +1,10 @@
-type storageSetParams = {
-  channelID: string;
-  userId: string;
-};
-type storageKeyPairParams = {
-  channelID: string;
-  keyPair: object | null;
-};
+interface IStorage {
+  get(key: string): any,
+  set(key: string, value: any): void,
+  remove(key: string): void
+}
 
-const storage = {
+const storageProvider = (provider: Storage): IStorage => ({
   get: (key: string) => {
     const inLS = localStorage.getItem(key);
 

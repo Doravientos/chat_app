@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 export type SocketListenerType = "limit-reached" | "delivered" | "on-alice-join" | "on-alice-disconnect" | "chat-message";
->>>>>>> 7330d72 (fix: type/service (#308))
 export type LinkObjType = {
     hash: string,
     link: string,
@@ -13,6 +10,7 @@ export type LinkObjType = {
 
 export interface ISendMessageReturn { id: string, timestamp: string };
 export interface IGetPublicKeyReturn { publicKey: string};
+export type TypeUsersInChannel = { "uuid":string }[];
 
 export interface IChatE2EE {
     isEncrypted(): boolean;
@@ -20,15 +18,19 @@ export interface IChatE2EE {
     setChannel(channelId: string, userId: string, publicKey: string): void;
     setPublicKey(key: string): void;
     delete(): Promise<void>;
-    getUsersInChannel(): Promise<any>; //fix: return type
+    getUsersInChannel(): Promise<TypeUsersInChannel>;
     sendMessage(args: { image: string, text: string }): Promise<ISendMessageReturn>;
-    getPublicKey(): Promise<any>; //fix: return type
+    getPublicKey(): Promise<IGetPublicKeyReturn>;
     dispose(): void;
 <<<<<<< HEAD
 =======
     encrypt({ image, text }): { send: () => Promise<ISendMessageReturn> };
+<<<<<<< HEAD
     on(listener: SocketListenerType, callback): void;
 >>>>>>> 7330d72 (fix: type/service (#308))
+=======
+    on(listener: SocketListenerType, callback: (...args: any) => void): void;
+>>>>>>> f04b2be (fix: added more type check)
 }
 
 export interface ICryptoUtils {
